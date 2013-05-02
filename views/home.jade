@@ -1,0 +1,144 @@
+
+#myPressModal(class="modal hide fade", tabindex="-1", role="dialog", aria-labelledby="myModalLabel", aria-hidden="true")
+  .modal-header
+  button(type="button", class="close", data-dismiss="modal", aria-hidden="true", value="x")
+  h3#myModalLabel(style="margin-left: 12px")Press
+  .modal-body
+    p 
+       ul(style="list-style-type: none;") 
+        li 
+          .logo(style="display:inline-block")
+            img(src="https://twimg0-a.akamaihd.net/profile_images/1798484398/S_Twitter_white-resize.png", style="width:50px")
+          .link(style="display:inline-block")
+            a(href="http://roboticsclub.stanford.edu/freshman-enter-drone-olympics", target="_blank") Freshman Enter Drone Olympics
+  .modal-footer
+    button.btn(data-dismiss="modal", aria-hidden="true") Close
+
+
+// CONTENT
+#home
+.row.header
+  // NAV
+  nav.navbar.navbar-fixed-top
+    .navbar-inner
+      .container
+        a.btn.btn-navbar.m-btn.blue(data-toggle='collapse', data-target='.nav-collapse')
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        h1.brand
+          .login Outkept
+        .nav-collapse
+          ul.nav.pull-right
+            li
+              a.anchorLink(href='#home') Home
+            li
+              a.anchorLink(href='#status') Status
+            li
+              a.anchorLink(href='#about') Installation
+
+
+// Start Callout
+.full.callout
+  .container
+    .row
+      .code(style="letter-spacing: -1px;margin-top:-60px;height:396px;position:absolute;z-index:1000;margin-left: 14px;color: rgb(207, 207, 207);font-size:16px;background-color:rgba(0,0,0,0.28);padding:30px 30px 30px 30px;width:550px") 
+        h2
+          | Agentless monitorization and behavior driven control system.
+        pre(style="background-color: transparent;color: #D8D8D8;border: 0;margin-left: 50px;font-size:14px;margin-left: 20px;") 
+          | {
+          |   'name': 'apache',
+          |   'alarm': 400,
+          |   'warning': 350,
+          |   'exported': true,
+          |   'cmd': 'ps aux | grep httpd | grep -v grep | wc -l',
+          |   'reactive': 'service httpd restart;',
+          |   'verifier': 'if which httpd >/dev/null;then echo yes;else echo no;fi;',
+          |   'inverted': false,
+          |   'zero': false
+          | },
+      div(style="position: absolute; right:0px; z-index:900; top: 40px;")
+        img(src="img/outkept_screen.png")
+        
+      //.span12.companycallout
+        p
+          a.m-btn.big(href='https://tito.io/nodecopter/drone-olympics-sf', style="margin-left: 750px;width:240px")
+            | Download
+            i.m-icon-big-swapright.m-icon-black
+
+
+.row-fluid.section(style="padding: 1.6% 0;margin-top:345px;")
+  .container
+    #press(style="margin-left:auto;margin-right:auto;width:600px;")
+      ul.sponsors
+        li
+          a(href="http://nodejs.org", target="_blank")
+            img(src="img/nodejs.png")
+        li
+          a(href="http://redis.io", target="_blank")
+            img(src="img/redis.png")
+        li
+          a(href="https://github.com/substack/shoe", target="_blank")
+            img(src="img/shoe.png")
+
+
+
+// End Callout
+// Start About
+#about.row-fluid.section
+  .container
+    .explain
+      h2 installation
+          .row-fluid
+        .span5
+          h3 Pre-Requirements 
+          p
+            | Outkept stack is very lean, you just need to get 
+            a(href="http://nodejs.org", target="_blank") Node.js 
+            | and  
+            a(href="http://redis.io", target="_blank") Redis 
+            | working.
+        .span5
+          h3 Installation
+          p
+            ul 
+              li(style="border-style: solid;border-width: 1px;padding: 3px;border-color: lightgray;") curl -O https://github.com/apocas/outkept/archive/master.zip
+              li(style="border-style: solid;border-width: 1px;padding: 3px;margin-top: 5px;border-color: lightgray;") unzip master.zip; mv master outkept; cd outkept;
+              li(style="border-style: solid;border-width: 1px;padding: 3px;margin-top: 5px;border-color: lightgray;") npm install
+              li(style="padding: 3px;margin-top: 5px;") Ajust conf/*.js files according to your needs.
+              li(style="border-style: solid;border-width: 1px;padding: 3px;margin-top: 5px;border-color: lightgray;") node main.js
+
+#status.row-fluid.section
+  .container
+    .explain
+      h2 status
+      p.intro
+        | Outkept is currently under heavy development, current version is stable but still lacking some functionalities present in the old Java based version.
+      p.intro
+        | You may run the latest version following the 
+        a.anchorLink(href='#about') installation 
+        | instructions.
+
+// /container
+script(src='js/jquery.js')
+script(src='js/jquery.mousewheel-3.0.4.pack.js')
+script(src='js/jquery.videoBG.js')
+script(src='js/iso-custom.js')
+script(src='js/jquery.isotope.min.js')
+script(src='js/bootstrap-scrollspy.js')
+script(src='js/anchor.js', type='text/javascript')
+script(src='js/bootstrap.js')
+// MAP
+
+script(type='text/javascript')
+  $(document).ready(function() {
+    $('.callout').videoBG({
+      position:"absolute",
+      zIndex:0,
+      loop: "20",
+      poster:'/img/datacenter.jpg',
+      opacity:1
+    });
+
+    document.getElementById("Video1").volume = 0
+  });

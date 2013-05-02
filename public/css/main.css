@@ -1,0 +1,47 @@
+body {
+  background-image: url("http://subtlepatterns.subtlepatterns.netdna-cdn.com/patterns/subtle_dots.png");
+}
+img {
+  display: inline-block;
+}
+.navbar-fixed-top {
+  -webkit-box-shadow: 0 1px 5px 0 rgba(199,199,199,0.60), 0 0 3px 1px rgba(128,128,128,0.10);
+  -moz-box-shadow: 0 1px 5px 0 rgba(199,199,199,0.60), 0 0 3px 1px rgba(128,128,128,0.10);
+  box-shadow: 0 1px 5px 0 rgba(199,199,199,0.60), 0 0 3px 1px rgba(128,128,128,0.10);
+}
+.information {
+  position: absolute;
+  margin-top: 150px;
+  background-color: rgba(0,0,0,0.30);
+  width: 190px;
+  padding: 5px;
+  color: whiteSmoke;
+  font-size: 13px;
+}
+.information:hover {
+  position: absolute;
+  margin-top: 150px;
+  background-color: rgba(0,0,0,0.30);
+  width: 190px;
+  padding: 5px;
+  color: whiteSmoke;
+  font-size: 13px;
+}
+
+@font-face {
+    font-family: 'Marketing';
+    src: url('./fonts/MarketingScript-webfont.eot');
+    src: url('./fonts/MarketingScript-webfont.eot?#iefix') format('eot'),
+        url('./fonts/MarketingScript-webfont.woff') format('woff'),
+        url('./fonts/MarketingScript-webfont.ttf') format('truetype'),
+        url('./fonts/MarketingScript-webfont.svg#webfontZ5AiaAsu') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.login {
+  font-family: "Marketing", "League Gothic","Museo Slab","Helvetica Neue",Helvetica,arial,sans-serif;
+  font-size: 50px;
+  color: #000000;
+  text-shadow: 0 1px 1px #C8C8C8;
+}

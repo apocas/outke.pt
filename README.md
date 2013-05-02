@@ -1,4 +1,6 @@
-outke.pt
-========
+# Outke.pt website
 
-Outkept website - http://outke.pt
+Oukept website
+
+Based on https://github.com/nodecopter/dronegames.co
+
