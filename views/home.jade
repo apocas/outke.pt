@@ -18,7 +18,7 @@
             li
               a.anchorLink(href='#about') Installation
             li
-              a.anchorLink(href='#status') Status
+              a.anchorLink(href='/documentation') Documentation
 
 
 // Start Callout
@@ -80,24 +80,10 @@
           h3 Installation
           p
             ul 
-              li(style="border-style: solid;border-width: 1px;padding: 3px;border-color: lightgray;") wget https://github.com/apocas/outkept/archive/master.zip
-              li(style="border-style: solid;border-width: 1px;padding: 3px;margin-top: 5px;border-color: lightgray;") unzip master; cd outkept-master;
+              li(style="border-style: solid;border-width: 1px;padding: 3px;border-color: lightgray;") git clone https://github.com/apocas/outkept
               li(style="border-style: solid;border-width: 1px;padding: 3px;margin-top: 5px;border-color: lightgray;") npm install
-              li(style="padding: 3px;margin-top: 5px;") Ajust conf/*.js files according to your needs.
+              li(style="padding: 3px;margin-top: 5px;") Ajust conf/*.js files according to your needs (read documentation).
               li(style="border-style: solid;border-width: 1px;padding: 3px;margin-top: 5px;border-color: lightgray;") node main.js
-
-#status.row-fluid.section
-  .container
-    .explain
-      h2 status
-      p.intro
-        | Outkept is currently under heavy development, current version is stable but still lacking some functionalities present in the old Java based version.
-      p.intro
-        | You may run the latest version following the 
-        a.anchorLink(href='#about') installation 
-        | instructions.
-      p.intro
-        | Documentation coming soon...
 
 // /container
 script(src='js/jquery.js')
