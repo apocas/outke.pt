@@ -27,7 +27,7 @@
     .row
       .code(style="letter-spacing: -1px;margin-top:-60px;height:396px;position:absolute;z-index:1000;margin-left: 14px;color: rgb(207, 207, 207);font-size:16px;background-color:rgba(0,0,0,0.28);padding:30px 30px 30px 30px;width:550px") 
         h2
-          | Agentless monitorization and behavior driven control system.
+          | Agentless, auto-discover behavior driven monitorization and control system.
         pre(style="background-color: transparent;color: #D8D8D8;border: 0;margin-left: 50px;font-size:14px;margin-left: 20px;") 
           | {
           |   'name': 'apache',
@@ -68,14 +68,8 @@
     .explain
       h2 installation
           .row-fluid
-        .span5
-          h3 Pre-Requirements 
-          p
-            | Outkept stack is very lean, you just need to get 
-            a(href="http://nodejs.org", target="_blank") Node.js 
-            | and  
-            a(href="http://redis.io", target="_blank") Redis 
-            | working.
+        .span6
+          iframe(width="450", height="280", src="http://www.youtube.com/embed/KP9ENtgpq2c?HD=1;rel=0;showinfo=0;controls=0", class="youtube-player", type="text/html", controls="0", frameborder="0", allowfullscreen)
         .span5
           h3 Installation
           p
@@ -84,6 +78,7 @@
               li(style="border-style: solid;border-width: 1px;padding: 3px;margin-top: 5px;border-color: lightgray;") npm install
               li(style="padding: 3px;margin-top: 5px;") Ajust conf/*.js files according to your needs (read documentation).
               li(style="border-style: solid;border-width: 1px;padding: 3px;margin-top: 5px;border-color: lightgray;") node main.js
+              li(style="padding: 3px;margin-top: 5px;") Daemonize Node.js.
 
 // /container
 script(src='js/jquery.js')
