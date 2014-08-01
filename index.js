@@ -1,21 +1,8 @@
-var express = require('express')
-  , stylus  = require('stylus')
-  , nib     = require('nib');
+var express = require('express'),
+  stylus = require('stylus'),
+  nib = require('nib');
 
 var app = express.createServer(express.logger());
-
-//  Configure general expressjs
- 
-app.configure(function(){
- 
- this
-   .use(express.cookieParser())
-   .use(express.bodyParser())
-   .use(express.errorHandler({dumpException: true, showStatck: true}))
-   .use(express.session({ secret: 'y2jgrf9sd8jgshgs79'}))
-});
-
-//  Configure template engine
 
 app.configure(function(){
  this
@@ -25,15 +12,14 @@ app.configure(function(){
      src: __dirname + '/public',
      compile: compile
      }))
-   .use(express.static(__dirname + '/public'))
+   .use(express.static(__dirname + '/public'));
 });
 
-//  Small compile helper
 
 function compile(str, path){
   return stylus(str)
     .set('filename', path)
-    .include(nib.path)
+    .include(nib.path);
 }
 
 app.get('/', function(req, res) {

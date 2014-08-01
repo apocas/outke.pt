@@ -2,9 +2,9 @@
 html(lang='en')
   head
     meta(charset='utf-8')
-    title Outkept - Agentless monitorization system
+    meta(name='description', content='Node.js based autonomous cluster control and monitoring system.')
+    title Outkept - Autonomous cluster control and monitoring system
     meta(name='viewport', content='width=device-width, initial-scale=1.0')
-    meta(name='description', content='Monitorizarion and control system based on node.js. Devops tool.')
     meta(name='author', content='')
     // Le styles
     link(href='css/bootstrap.css', rel='stylesheet')
@@ -31,3 +31,30 @@ html(lang='en')
     #content
       != body
 
+    #footer
+      .row-fluid.section(style='padding: 1.5% 0;')
+        .container
+          .span12
+            | Outkept 2013
+            br
+            | Pedro Dias
+            a(href='https://twitter.com/pedromdias')  @pedromdias
+            br
+            div(style='font-size: 10px; line-height: 11px;margin-top:5px')
+              | Website based on 
+              a(href='https://github.com/nodecopter/dronegames.co') dronegames
+              br
+              | Documentation site based on 
+              a(href='https://github.com/nodejitsu/handbook') handbook
+
+
+  script(type="text/javascript")
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35841680-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();

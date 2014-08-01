@@ -11,40 +11,45 @@
           span.icon-bar
         h1.brand
           .login Outkept
+            span(style='font-size: 10px; margin-left: 5px') beta
         .nav-collapse
           ul.nav.pull-right
             li
               a.anchorLink(href='#home') Home
             li
+              a.anchorLink(href='#what') What it is
+            li
               a.anchorLink(href='#about') Installation
             li
-              a.anchorLink(href='/documentation') Documentation
+              a.anchorLink(href='https://github.com/apocas/outkept') Documentation
 
 
 // Start Callout
-.full.callout
+.full.callout(style='background-image: url("/img/datacenter.jpg"); height:336px')
   .container
     .row
-      .code(style="letter-spacing: -1px;margin-top:-60px;height:396px;position:absolute;z-index:1000;margin-left: 14px;color: rgb(207, 207, 207);font-size:16px;background-color:rgba(0,0,0,0.28);padding:30px 30px 30px 30px;width:550px") 
+      .code(style="letter-spacing: -1px;margin-top:-60px;height:396px;position:absolute;z-index:1000;margin-left: 14px;color: rgb(207, 207, 207);font-size:16px;background-color:rgba(0,0,0,0.28);padding:30px 30px 30px 30px;width:550px")
         h2
-          | Agentless, auto-discover behavior driven monitorization and control system.
-        pre(style="background-color: transparent;color: #D8D8D8;border: 0;margin-left: 50px;font-size:14px;margin-left: 20px;") 
+          | Agentless, auto-discover behavior driven monitoring and control system.
+        pre(style="background-color: transparent;color: #D8D8D8;border: 0;margin-left: 50px;font-size:14px;margin-left: 20px;")
           | {
-          |   'name': 'apache',
-          |   'alarm': 400,
-          |   'warning': 350,
+          |   'name': 'exim',
+          |   'alarm': 600,
+          |   'warning': 500,
           |   'exported': true,
-          |   'cmd': 'ps aux | grep httpd | grep -v grep | wc -l',
-          |   'reactive': 'service httpd restart;',
-          |   'verifier': 'if which httpd >/dev/null;then echo yes;else echo no;fi;',
+          |   'cmd': 'exim -bpc',
+          |   'reactive': 'exim -bpru | awk {\\'print $3\\'} | xargs exim -Mrm 2> /dev/null',
+          |   'verifier': 'if which exim >/dev/null;then echo yes;else echo no; fi;',
           |   'inverted': false,
           |   'zero': false
           | },
-      div(style="position: absolute; right:0px; z-index:900; top: 40px;")
-        img(src="img/outkept_screen.png")
-        
 
-.row-fluid.section(style="padding: 1.6% 0;margin-top:345px;")
+
+      div(style="position: absolute; right:0px; z-index:900; top: 40px;")
+        img(src="img/outkept_screen.png", style="margin-top: 72px;")
+
+
+.row-fluid.section(style="padding: 1.6% 0;")
   .container
     #press(style="margin-left:auto;margin-right:auto;width:600px;text-align:center;font-size:9px")
       | Proudly powered by
@@ -67,18 +72,34 @@
   .container
     .explain
       h2 installation
-          .row-fluid
+      .span6
+        iframe(width="450", height="280", src="http://www.youtube.com/embed/KP9ENtgpq2c?HD=1;rel=0;showinfo=0;controls=0", class="youtube-player", type="text/html", controls="0", frameborder="0", allowfullscreen)
+      .span5
+        h3 Installation
+        p
+          ul
+            li(style="border-style: solid;border-width: 1px;border-color: lightgray;") git clone https://github.com/apocas/outkept
+            li(style="border-style: solid;border-width: 1px;margin-top: 5px;border-color: lightgray;") npm install
+            li(style="padding: 3px;margin-top: 5px;") Ajust conf/*.js files according to your needs (read documentation).
+            li(style="border-style: solid;border-width: 1px;margin-top: 5px;border-color: lightgray;") node main.js
+            li(style="padding: 3px;margin-top: 5px;") Daemonize Node.js.
+
+#what.row-fluid.section
+  .container
+    .explain
+      h2 What it is
+      ul
         .span6
-          iframe(width="450", height="280", src="http://www.youtube.com/embed/KP9ENtgpq2c?HD=1;rel=0;showinfo=0;controls=0", class="youtube-player", type="text/html", controls="0", frameborder="0", allowfullscreen)
-        .span5
-          h3 Installation
-          p
-            ul 
-              li(style="border-style: solid;border-width: 1px;padding: 3px;border-color: lightgray;") git clone https://github.com/apocas/outkept
-              li(style="border-style: solid;border-width: 1px;padding: 3px;margin-top: 5px;border-color: lightgray;") npm install
-              li(style="padding: 3px;margin-top: 5px;") Ajust conf/*.js files according to your needs (read documentation).
-              li(style="border-style: solid;border-width: 1px;padding: 3px;margin-top: 5px;border-color: lightgray;") node main.js
-              li(style="padding: 3px;margin-top: 5px;") Daemonize Node.js.
+          li The idea behind Outkept was to build a tool that could auto-discover your cluster profile and simultaneously start monitoring and controlling each node it finds.
+          li(style="list-style-type: none;")
+            br
+          li If you have a heterogeneous cluster constantly changing, Outkept allows you to easily automate control behavior and cluster monitoring.
+        .span6
+          li There is no hardcoded behavior, instead it features a user defined pool of available sensors and stabilization/reactive action for each sensor.
+          li(style="list-style-type: none;")
+            br
+          li When it finds a new server in one of the monitorized subnets, it looks for supported sensors by running a verifier command that each sensor has (ex. mysql exists? in a mysql thread number sensors).
+
 
 // /container
 script(src='js/jquery.js')
@@ -92,6 +113,7 @@ script(src='js/bootstrap.js')
 // MAP
 
 script(type='text/javascript')
+  /*
   $(document).ready(function() {
     $('.callout').videoBG({
       position:"absolute",
@@ -103,3 +125,4 @@ script(type='text/javascript')
 
     document.getElementById("Video1").volume = 0
   });
+  */
